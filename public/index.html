@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="tailoredhair_app">
   <head>
     <meta charset="utf-8">
     <title></title>
+
     <!-- ANGULAR CDN'S -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js" charset="utf-8"></script>
@@ -13,8 +14,12 @@
     <link rel="stylesheet" href="/style.css">
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Mukta+Malar:400,800" rel="stylesheet">
+
   </head>
   <body ng-controller="MainController as ctrl">
-    hello
+
+    <ng-view>
+    </ng-view>
+
   </body>
 </html>
