@@ -1,3 +1,7 @@
+/**********************/
+/*        MAIN        */
+/**********************/
+
 html {
   height: 100%;
 }
@@ -10,3 +14,216 @@ body {
   height: 100%;
   margin: 0;
 }
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+button, input {
+  outline: 0;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.3)
+}
+
+/**********************/
+/*        HOME        */
+/**********************/
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 150px;
+  margin: 20px 0 0 40px;
+}
+
+.logo img {
+  width: 150px;
+  height: 150px;
+}
+
+.logo span {
+  font-family: 'Roboto', sans-serif;
+  font-size: 45px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.logreg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 380px;
+  height: 470px;
+  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.4));
+  border-radius: 15px;
+  right: 0;
+  top:0;
+  position: absolute;
+  margin-right: 40px;
+}
+
+.logreg ul {
+  text-align: center;
+  width: 100%;
+}
+
+.logreg li {
+  font-family: 'Roboto', sans-serif;
+  font-size: 50px;
+  font-weight: 500;
+  color: #fff;
+  display: inline;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.logreg section {
+  font-family: 'Roboto', sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+  color: #fff;
+  width: 100%;
+  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.3));
+  height: 50px;
+  text-align: center;
+  line-height: 75px;
+}
+
+.logreg form {
+  width: 100%;
+}
+
+.logreg_form {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+.logreg_form input {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  width: 100%;
+  height: 50px;
+  display: block;
+  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.3));
+  border: 0;
+  margin-top: 20px;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top:35px;
+}
+
+.logreg_form input::placeholder {
+  color: rgba(255,255,255,.7);
+}
+
+.logreg_form button {
+  background: none;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: rgba(0,0,0,.7);
+  margin-top: 20px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.logreg_form button span {
+  font-size: 25px;
+}
+
+.statuses {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+input.c_status, input.s_status {
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: #fff;
+  padding: 25px 15px 0 15px;
+  margin: 0;
+  width: 50%;
+  border: 0;
+  box-sizing: border-box;
+  line-height: 18px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+input.c_status {
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.3));
+  border-right: 1px solid rgba(255,255,255,.6);
+}
+
+input.s_status {
+  background: linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,.3));
+}
+
+.quicksearch {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0 0 100px 150px;
+}
+
+.quicksearch input {
+  background: rgba(255,255,255,.3);
+  border: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  height: 50px;
+  width: 300px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: rgba(0,0,0,.7);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.quicksearch input::placeholder {
+  color: rgba(0,0,0,.7);
+}
+
+.quicksearch button {
+  color: rgba(0,0,0,.7);
+  background: rgba(255,255,255,.3);
+  border: 0;
+  height: 50px;
+  font-size: 30px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
