@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/forystj/tailoredhair_frontend#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "bcrypt": "^1.0.3",
+    "express": "^4.16.2",
+    "routes": "^2.1.0"
   }
 }

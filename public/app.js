@@ -1,12 +1,12 @@
 const app = angular.module('tailoredhair_app', ['ngRoute', 'ngSanitize']);
 
 
-const truefalse = () => {
-  console.log(true);
-  document.getElementsByName("stylist")[0].style.color = "rgba(255,255,255,.5)"
-}
+// const truefalse = () => {
+//   console.log(true);
+//   document.getElementsByClassName("s_status")[0].style.color = "rgba(255,255,255,.5)"
+// }
 
-app.controller('MainController', ['$http', '$scope', '$sce', function($http, $scope, $sce) {
+app.controller('MainController', ['$http', '$scope', '$sce', '$location', function($http, $scope, $sce, $location) {
 
 /////////////////////////
   //AUTH
@@ -15,8 +15,11 @@ app.controller('MainController', ['$http', '$scope', '$sce', function($http, $sc
   this.loggedIn = false;
   // GET
   this.looks = [];
+  this.userPass = {};
 
 /////////////////////////
+
+this.url = 'http://localhost:3000';
 
 
   // LOGIN
@@ -28,15 +31,16 @@ app.controller('MainController', ['$http', '$scope', '$sce', function($http, $sc
       data: {
         user: {
           username: userPass.username,
-          password: userPass.password
+          password: userPass.password,
+          user_id: userPass.id
         }
       },
     }).then(response => {
       this.user = response.data.user;
       localStorage.setItem('token', JSON.stringify(response.data.token));
       this.loggedIn = true;
-      console.log('this.user:', this.user);
-      // window.location.href = '/profile';
+      console.log('this.user:', this.user.id);
+      $location.path('/profile/' + this.user.username);
     });
   }
 
@@ -74,15 +78,15 @@ app.controller('MainController', ['$http', '$scope', '$sce', function($http, $sc
     });
   }
 
+  // this.getUsers();
+
+
   this.logout = () => {
     localStorage.clear('token');
     location.reload();
     this.loggedIn = false;
     this.user = {};
   }
-
-
-  this.url = 'http://localhost:3000';
 
   this.getLooks = () => {
     $http({
@@ -96,7 +100,21 @@ app.controller('MainController', ['$http', '$scope', '$sce', function($http, $sc
     }).catch( err => console.error('Catch: ' , err ));
   };
 
-  this.getLooks();
+  // this.getLooks();
+
+
+  this.getUser = (user) => {
+  $http({
+    url: this.url + "/users/" + this.user.id,
+    method: "GET"
+  }).then(response => {
+    this.oneUser = response.data;
+    this.oneUser_id = id;
+    console.log('this.oneUser:', this.oneUser);
+  }).catch(reject => {
+    console.log('reject: ', reject);
+  });
+}
 
 }]);
 
@@ -112,7 +130,12 @@ app.controller('MainController', ['$http', '$scope', '$sce', function($http, $sc
       templateUrl: "../partials/home.html"
     })
 
-    $routeProvider.when("/profile", {
-      templateUrl: "./partials/profile.html"
+    $routeProvider.when("/profile/:username", {
+      templateUrl: "../partials/profile.html"
     })
+
+    $routeProvider.when("/search", {
+      templateUrl: "../partials/search.html"
+    })
+
   }]);

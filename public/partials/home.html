@@ -1,3 +1,5 @@
+<div class="homecontainer">
+  <div class="homeblackout">
 <div class="logo">
   <img src="http://tailoredsf.com/wp-content/uploads/2015/02/tailored_purple_logo.png"><span>HAIR</span>
 </div>
@@ -21,7 +23,7 @@
     <input type="text" ng-model="userPass.username" placeholder="USERNAME"/>
     <input type="password" ng-model="userPass.password" placeholder="PASSWORD"/>
     <input placeholder="EMAIL"/>
-    <button type="submit">submit <span>▶</span></button>
+    <button type="submit" ng-click="ctrl.getUser(ctrl.user.id)">submit <span>▶</span></button>
   </div>
 
 </form>
@@ -35,7 +37,7 @@
 </form> -->
 </div>
 
-<!-- {{ctrl.user.username}} -->
+{{ctrl.user.username}}
 
 <!-- <h4 ng-click="ctrl.getUsers()">Click To See Secret Stuff</h4>
 
@@ -43,6 +45,12 @@
 
 <!-- <a href="#" ng-click="ctrl.logout()">Logout</a> -->
 
-<div class="quicksearch">
-  <input type="text" placeholder="quick search"/><button type="submit">▶</button>
+<div class="homesearch">
+  <div class="quicksearch">
+    <input type="text" placeholder="quick search"/><button type="submit">▶</button>
+  </div>
+  <a class="advanced_search" href="/search"><span>▼</span> advanced search <span>▼</span></a>
+</div>
+
+</div>
 </div>
