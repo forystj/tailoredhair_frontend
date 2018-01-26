@@ -11,11 +11,13 @@ app.controller('MainController', ['$http', '$scope', '$sce', '$location', functi
 /////////////////////////
   //AUTH
   this.user = {};
+  this.currentUser = [];
   this.users = [];
   this.loggedIn = false;
   // GET
   this.looks = [];
   this.userPass = {};
+  this.currentPosts = [];
 
 /////////////////////////
 
@@ -32,15 +34,24 @@ this.url = 'http://localhost:3000';
         user: {
           username: userPass.username,
           password: userPass.password,
-          user_id: userPass.id
+          user_id: userPass.id,
+          s_status: userPass.stylist_status,
+          c_status: userPass.client_status,
+          looks: userPass.looks
         }
       },
     }).then(response => {
       this.user = response.data.user;
+      console.log(this.user);
+      this.currentUser.push(this.user);
+      console.log(this.currentUser[0]);
       localStorage.setItem('token', JSON.stringify(response.data.token));
       this.loggedIn = true;
-      console.log('this.user:', this.user.id);
-      $location.path('/profile/' + this.user.username);
+      if (this.user.client_status == true) {
+        $location.path('/search/');
+      } else if (this.user.stylist_status == true) {
+        $location.path('/profile/' + this.user.username);
+      }
     });
   }
 
@@ -69,7 +80,9 @@ this.url = 'http://localhost:3000';
         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
       }
     }).then(response => {
-      console.log(response);
+      this.users.push(response.data);
+      console.log(this.users);
+      // console.log(response);
       if (response.data.status == 401) {
         this.error = "Unauthorized";
       } else {
@@ -78,7 +91,7 @@ this.url = 'http://localhost:3000';
     });
   }
 
-  // this.getUsers();
+  this.getUsers();
 
 
   this.logout = () => {
@@ -93,26 +106,71 @@ this.url = 'http://localhost:3000';
         method:'GET',
         url: this.url + '/looks'
     }).then( response => {
-        console.log( response.data );
+      console.log( response.data );
         this.looks = response.data;
     }, error => {
         console.error( error.message );
     }).catch( err => console.error('Catch: ' , err ));
   };
 
-  // this.getLooks();
+  this.getLooks();
 
 
-  this.getUser = (user) => {
+  this.getUser = (userlooks) => {
   $http({
-    url: this.url + "/users/" + this.user.id,
+    url: this.url + "/userlooks",
     method: "GET"
   }).then(response => {
     this.oneUser = response.data;
-    this.oneUser_id = id;
-    console.log('this.oneUser:', this.oneUser);
+    // this.oneUser_id = id;
+    // console.log(this.currentUser[0].id);
+    // console.log(this.oneUser);
+    for (i=0; i<this.oneUser.length; i++){
+      // console.log(this.oneUser[i].user.id);
+      if (this.oneUser[i].user.id === this.currentUser[0].id) {
+        this.currentPosts.push(this.oneUser);
+        console.log(this.currentPosts);
+      }
+    }
+    // console.log('this.oneUser:', this.oneUser);
   }).catch(reject => {
     console.log('reject: ', reject);
+  });
+}
+
+// this.getUser()
+
+this.createLook = (look_id, user_id) => {
+  console.log("look id: " + look_id + " user id: " + user_id);
+  this.newUserlook = {
+    user_id: user_id,
+    look_id: look_id
+  };
+  $http({
+    method: 'POST',
+    url: this.url + "/userlooks",
+    data: this.newUserlook
+  }).then(response => {
+    this.userlooks.push(response.data)
+    this.getLooks();
+  }).catch(error => {
+    console.log('error:', error);
+  });
+}
+
+this.processForm = () => {
+  $http({
+    method: 'POST',
+    url: this.url + "/looks",
+    data: this.formdata
+  }).then(response => {
+    this.lookpost = response.data;
+    this.looks.unshift(this.lookpost);
+    this.createLook(this.lookpost.id, this.user.id);
+    this.formdata = {}
+    console.log('this.post:', this.post);
+  }).catch(error => {
+    console.log('error:', error);
   });
 }
 

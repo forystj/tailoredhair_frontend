@@ -1,56 +1,55 @@
 <div class="homecontainer">
-  <div class="homeblackout">
-<div class="logo">
-  <img src="http://tailoredsf.com/wp-content/uploads/2015/02/tailored_purple_logo.png"><span>HAIR</span>
-</div>
-
-<div class="logreg">
-  <ul>
-    <li>log in</li>
-    <li>register</li>
-  </ul>
-
-<section>I'm a</section>
-
-<form ng-submit="ctrl.login(userPass)">
-
-  <div class="statuses">
-    <input type="button" class="c_status" value="CLIENT" onclick="truefalse()"/>
-    <input type="button" class="s_status" value="STYLIST"/>
+<div class="homeblackout">
+  <div class="logo">
+    <img src="http://tailoredsf.com/wp-content/uploads/2015/02/tailored_purple_logo.png"><span>HAIR</span>
   </div>
 
-  <div class="logreg_form">
-    <input type="text" ng-model="userPass.username" placeholder="USERNAME"/>
-    <input type="password" ng-model="userPass.password" placeholder="PASSWORD"/>
-    <input placeholder="EMAIL"/>
-    <button type="submit" ng-click="ctrl.getUser(ctrl.user.id)">submit <span>▶</span></button>
+  <div class="logreg">
+    <ul>
+      <li>log in</li>
+      <li>register</li>
+    </ul>
+
+  <section>I'm a</section>
+
+  <form ng-submit="ctrl.login(userPass)">
+
+    <div class="statuses">
+      <input type="button" class="c_status" value="CLIENT" onclick="truefalse()"/>
+      <input type="button" class="s_status" value="STYLIST"/>
+    </div>
+
+    <div class="logreg_form">
+      <input type="text" ng-model="userPass.username" placeholder="USERNAME"/>
+      <input type="password" ng-model="userPass.password" placeholder="PASSWORD"/>
+      <input placeholder="EMAIL"/>
+      <button type="submit" ng-click="ctrl.getUser(ctrl.currentUser[0])">submit <span>▶</span></button>
+    </div>
+
+  </form>
+
+  <!-- <button value="Client" onclick="immaClient()">client</button> -->
+
+  <!-- <form ng-submit="ctrl.register(regData)">
+    <input type="text" ng-model="regData.username" placeholder="USERNAME" />
+    <input type="password" ng-model="regData.password" placeholder="PASSWORD" />
+    <button type="submit">submit</button>
+  </form> -->
   </div>
 
-</form>
+  {{ctrl.user.username}}
 
-<!-- <button value="Client" onclick="immaClient()">client</button> -->
+  <!-- <h4 ng-click="ctrl.getUsers()">Click To See Secret Stuff</h4>
 
-<!-- <form ng-submit="ctrl.register(regData)">
-  <input type="text" ng-model="regData.username" placeholder="USERNAME" />
-  <input type="password" ng-model="regData.password" placeholder="PASSWORD" />
-  <button type="submit">submit</button>
-</form> -->
-</div>
+  <div>{{ctrl.error}}</div> -->
 
-{{ctrl.user.username}}
+  <!-- <a href="#" ng-click="ctrl.logout()">Logout</a> -->
 
-<!-- <h4 ng-click="ctrl.getUsers()">Click To See Secret Stuff</h4>
-
-<div>{{ctrl.error}}</div> -->
-
-<!-- <a href="#" ng-click="ctrl.logout()">Logout</a> -->
-
-<div class="homesearch">
-  <div class="quicksearch">
-    <input type="text" placeholder="quick search"/><button type="submit">▶</button>
+  <div class="homesearch">
+    <div class="quicksearch">
+      <input type="text" placeholder="quick search"/><button type="submit">▶</button>
+    </div>
+    <a class="advanced_search" href="/search"><span>▼</span> advanced search <span>▼</span></a>
   </div>
-  <a class="advanced_search" href="/search"><span>▼</span> advanced search <span>▼</span></a>
-</div>
-
 </div>
 </div>
