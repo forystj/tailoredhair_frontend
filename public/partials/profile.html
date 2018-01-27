@@ -16,10 +16,12 @@
 
 <div class="bottom">
   <div class="profile_left">
-    <img src="{{ctrl.user.avatar}}">
+    <div class="profile_pic">
+      <img src="{{ctrl.user.avatar}}">
+    </div>
   </div>
   <div class="profile_right">
-    <div ng-repeat="looks in ctrl.currentPosts[0] | orderBy:'updated_at':true">
+    <div class="profile_looks" ng-repeat="looks in ctrl.currentPosts[0] | orderBy:'updated_at':true">
       <img src="{{looks.look.image}}">
     </div>
   </div>

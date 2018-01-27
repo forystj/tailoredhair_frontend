@@ -72,26 +72,45 @@ button, input {
   color: #fff;
 }
 
-.logreg {
+.loginregister {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 380px;
+  height: 90px;
+  overflow: hidden;
+  right: 0;
+  top:0;
+  position: absolute;
+  margin-right: 40px;
+  margin-top: 50px;
+  z-index: 100;
+}
+
+.log, .reg {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 380px;
-  height: 470px;
   background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.4));
   border-radius: 15px;
   right: 0;
   top:0;
   position: absolute;
   margin-right: 40px;
+  margin-top: 50px;
+  display: none;
+  animation: slide-bottom .7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  padding-top: 80px;
+  padding-bottom: 30px;
 }
 
-.logreg ul {
+.loginregister ul {
   text-align: center;
   width: 100%;
 }
 
-.logreg li {
+.loginregister li {
   font-family: 'Roboto', sans-serif;
   font-size: 50px;
   font-weight: 400;
@@ -101,7 +120,7 @@ button, input {
   cursor: pointer;
 }
 
-.logreg section {
+.log section, .reg section {
   font-family: 'Roboto', sans-serif;
   font-size: 35px;
   font-weight: 400;
@@ -113,17 +132,17 @@ button, input {
   line-height: 75px;
 }
 
-.logreg form {
+.log form, .reg form{
   width: 100%;
 }
 
-.logreg_form {
+.log_form, .reg_form {
   width: 60%;
   margin: auto;
   text-align: center;
 }
 
-.logreg_form input {
+.log_form input, .reg_form input {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 400;
@@ -139,11 +158,11 @@ button, input {
   padding-top:35px;
 }
 
-.logreg_form input::placeholder {
+.log_form input::placeholder, .reg_form input::placeholder {
   color: rgba(255,255,255,.7);
 }
 
-.logreg_form button {
+.log_form button, .reg_form button {
   background: none;
   border: none;
   font-family: 'Roboto', sans-serif;
@@ -155,7 +174,7 @@ button, input {
   cursor: pointer;
 }
 
-.logreg_form button span {
+.log_form button span, .reg_form button span {
   font-size: 25px;
 }
 
@@ -165,7 +184,7 @@ button, input {
   width: 100%;
 }
 
-input.c_status, input.s_status {
+button.c_status, button.s_status {
   font-family: 'Roboto', sans-serif;
   font-size: 25px;
   font-weight: 400;
@@ -180,13 +199,17 @@ input.c_status, input.s_status {
   transition: .2s;
 }
 
-input.c_status {
+button.c_status {
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.3));
   border-right: 1px solid rgba(255,255,255,.6);
 }
 
-input.s_status {
+button.s_status {
   background: linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,.3));
+}
+
+.next_reg {
+  display: none;
 }
 
 .homesearch {
@@ -260,6 +283,7 @@ nav {
 nav ul {
   margin: 0;
   width: 100%;
+  height: inherit;
 }
 
 nav li {
@@ -285,7 +309,7 @@ nav li:hover {
 }
 
 .middle {
-  min-height: 250px;
+  min-height: 150px;
   display: flex;
   align-items: center;
 }
@@ -300,9 +324,12 @@ nav li:hover {
 
 .bottom {
   background: #f7f7f7;
+  width: 100%;
   min-height: 100%;
   display: flex;
   flex-direction: row;
+  padding: 20px;
+  justify-content: center;
 }
 
 .search_area form {
@@ -355,16 +382,58 @@ input.right {
   font-size: 30px;
 }
 
-img {
-  max-height: 200px;
-}
-
 .profile_left {
-  width: 30%;
+  min-width: 400px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
 }
 
 .profile_right {
-  width: 70%;
+  width: 700px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  line-height: 0;
+}
+
+.profile_looks {
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 200px;
+  max-height: 200px;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-self: flex-start;
+}
+
+.profile_right img {
+  max-height: 250px;
+}
+
+.profile_pic {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.profile_left img {
+  width: 300px;
+}
+
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-300px);
+  }
+  100% {
+    -webkit-transform: translateY(auto);
+  }
 }
 
 /**/

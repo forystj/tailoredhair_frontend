@@ -1,12 +1,10 @@
 const app = angular.module('tailoredhair_app', ['ngRoute', 'ngSanitize']);
 
-
-// const truefalse = () => {
-//   console.log(true);
-//   document.getElementsByClassName("s_status")[0].style.color = "rgba(255,255,255,.5)"
-// }
-
 app.controller('MainController', ['$http', '$scope', '$sce', '$location', function($http, $scope, $sce, $location) {
+
+  $scope.specialty = {
+        name: 'whatever'
+      };
 
 /////////////////////////
   //AUTH
@@ -62,7 +60,9 @@ this.url = 'http://localhost:3000';
      data: {
        user: {
          username: regData.username,
-         password: regData.password
+         password: regData.password,
+         client_status: regData.client_status,
+         stylist_status: regData.stylist_status
      }}
    }).then(response => {
      this.user = response.data;
@@ -91,7 +91,7 @@ this.url = 'http://localhost:3000';
     });
   }
 
-  this.getUsers();
+  // this.getUsers();
 
 
   this.logout = () => {
@@ -122,14 +122,9 @@ this.url = 'http://localhost:3000';
     method: "GET"
   }).then(response => {
     this.oneUser = response.data;
-    // this.oneUser_id = id;
-    // console.log(this.currentUser[0].id);
-    // console.log(this.oneUser);
     for (i=0; i<this.oneUser.length; i++){
-      // console.log(this.oneUser[i].user.id);
       if (this.oneUser[i].user.id === this.currentUser[0].id) {
         this.currentPosts.push(this.oneUser);
-        console.log(this.currentPosts);
       }
     }
     // console.log('this.oneUser:', this.oneUser);
@@ -137,8 +132,6 @@ this.url = 'http://localhost:3000';
     console.log('reject: ', reject);
   });
 }
-
-// this.getUser()
 
 this.createLook = (look_id, user_id) => {
   console.log("look id: " + look_id + " user id: " + user_id);

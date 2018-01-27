@@ -4,40 +4,56 @@
     <img src="http://tailoredsf.com/wp-content/uploads/2015/02/tailored_purple_logo.png"><span>HAIR</span>
   </div>
 
-  <div class="logreg">
+  <div class="loginregister">
     <ul>
-      <li>log in</li>
-      <li>register</li>
+      <li onclick="logOpen()" class="logg">log in</li>
+      <li onclick="regOpen()" class="regg">register</li>
     </ul>
-
-  <section>I'm a</section>
-
-  <form ng-submit="ctrl.login(userPass)">
-
-    <div class="statuses">
-      <input type="button" class="c_status" value="CLIENT" onclick="truefalse()"/>
-      <input type="button" class="s_status" value="STYLIST"/>
-    </div>
-
-    <div class="logreg_form">
-      <input type="text" ng-model="userPass.username" placeholder="USERNAME"/>
-      <input type="password" ng-model="userPass.password" placeholder="PASSWORD"/>
-      <input placeholder="EMAIL"/>
-      <button type="submit" ng-click="ctrl.getUser(ctrl.currentUser[0])">submit <span>▶</span></button>
-    </div>
-
-  </form>
-
-  <!-- <button value="Client" onclick="immaClient()">client</button> -->
-
-  <!-- <form ng-submit="ctrl.register(regData)">
-    <input type="text" ng-model="regData.username" placeholder="USERNAME" />
-    <input type="password" ng-model="regData.password" placeholder="PASSWORD" />
-    <button type="submit">submit</button>
-  </form> -->
   </div>
 
-  {{ctrl.user.username}}
+  <div class="log">
+    <div class="log_form">
+      <form ng-submit="ctrl.login(userPass)">
+      <input type="text" ng-model="userPass.username" placeholder="USERNAME"/>
+      <input type="password" ng-model="userPass.password" placeholder="PASSWORD"/>
+      <button type="submit" ng-click="ctrl.getUser(ctrl.currentUser[0]);">submit <span>▶</span></button>
+      </form>
+    </div>
+  </div>
+
+  <div class="reg">
+
+    <form class="initial_reg" ng-submit="ctrl.register(regData)">
+      <section>I'm a</section>
+
+      <div class="statuses">
+
+        <!-- <input type="button" class="c_status" value="CLIENT" onclick="clickClient()" ng-model="regData.client_status"/> -->
+        <button type="button" class="c_status" onclick="clickClient()" ng-model="regData.client_status = true; regData.stylist_status = false">CLIENT</button>
+        <!-- <input type="button" class="s_status" value="STYLIST" onclick="clickStylist()" ng-model="regData.stylist_status"/> -->
+        <button type="button" class="s_status" onclick="clickStylist()" ng-model="regData.stylist_status = true; regData.client_status = false">STYLIST</button>
+
+      </div>
+
+      <div class="reg_form">
+        <input type="text" ng-model="regData.username" placeholder="USERNAME" />
+        <input type="password" ng-model="regData.password" placeholder="PASSWORD" />
+        <input placeholder="EMAIL"/>
+        <button type="submit">submit <span>▶</span></button>
+      </div>
+    </form>
+
+    <form class="next_reg">
+      <label>
+        <input type="radio" ng-model="specialty.name" value="specialty">
+        Specialty
+      </label>
+      <tt>Speialty = {{specialty.name | json}}</tt><br/>
+    </form>
+
+  </div>
+
+  <!-- {{ctrl.user.username}} -->
 
   <!-- <h4 ng-click="ctrl.getUsers()">Click To See Secret Stuff</h4>
 
