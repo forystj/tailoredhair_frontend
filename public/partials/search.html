@@ -5,31 +5,36 @@
 <div class="search_area">
   <form>
     <div class="searching">
-      <input type="text" placeholder="search keyword"/>
+      <input type="text" placeholder="search keyword" data-ng-model="searchBox"/>
       <input type="text" placeholder="location"/>
     </div>
     <div class="search_hs">
-        <input class="left" type="button" class="" value="HAIR" onclick=""/>
-        <input class="right" type="button" class="" value="STYLIST" onclick=""/>
+        <input class="left" type="button" value="HAIR" onclick="searchSpecialty(); changeSearchBg()" ng-click="searchFilt = 'hair'"/>
+        <input class="right" type="button" value="STYLIST" onclick="" ng-click="searchFilt = 'stylist'"/>
     </div>
     <div class="search_specialty">
-        <input type="button" class="" value="BARBERING" onclick=""/>
-        <input type="button" class="" value="CUT" onclick=""/>
-        <input type="button" class="" value="COLOR" onclick=""/>
-        <input type="button" class="" value="STYLING" onclick=""/>
+        <input type="button" class="" value="BARBERING" onclick="" ng-click="searchFilt = 'barbering'"/>
+        <input type="button" class="" value="CUT" onclick="" ng-click="searchFilt = 'cut'"/>
+        <input type="button" class="colorinput" value="COLOR" onclick="searchColorEnjoy(); changeColorBg()" ng-click="searchFilt = 'color'"/>
+        <input type="button" class="" value="STYLING" onclick="" ng-click="searchFilt = 'styling'"/>
     </div>
     <div class="search_enjoy">
-        <input type="button" class="" value="BALAYAGE" onclick=""/>
-        <input type="button" class="" value="BLEACH & TONE" onclick=""/>
-        <input type="button" class="" value="HIGHLIGHTS" onclick=""/>
-        <input type="button" class="" value="TINT" onclick=""/>
+        <input type="button" class="colorinput2" value="BALAYAGE" onclick="changeEnjoyBg()" ng-click="searchFilt = 'balayage'"/>
+        <input type="button" class="" value="BLEACH & TONE" onclick="" ng-click="searchFilt = 'bleach'"/>
+        <input type="button" class="" value="HIGHLIGHTS" onclick="" ng-click="searchFilt = 'highlights'"/>
+        <input type="button" class="" value="TINT" onclick="" ng-click="searchFilt = 'tint'"/>
     </div>
   </form>
 </div>
-hi {{ctrl.user.username}}
-<div ng-repeat="look in ctrl.looks | orderBy:'updated_at':true">
-<img src="{{ look.image }}">
-<div>
+
+<div class="bottom searchimg">
+  <!-- hi {{ctrl.user.username}} -->
+  <div class="search_looks" ng-repeat="look in ctrl.looks | orderBy:'updated_at':true | filter: searchBox | filter: searchFilt">
+    <img src="{{ look.image }}">
+  </div>
+</div>
+
+</div>
 
 
 

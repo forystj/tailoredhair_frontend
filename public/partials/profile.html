@@ -3,15 +3,9 @@
 <nav ng-include="'/partials/nav.html'"></nav>
 
 <div class="middle">
-<h1>@{{ctrl.user.username}}</h1> looks▶
-
-<form ng-submit="ctrl.processForm()">
-    <input type = "text" ng-model="ctrl.formdata.image" placeholder="Image URL">
-    <input type = "text" ng-model="ctrl.formdata.caption" placeholder="Caption">
-    <input type="hidden" ng-model="ctrl.formdata.user.id">
-    <input type="text" ng-model="ctrl.formdata.tags" placeholder="Tags">
-    <button type="submit">➡</button>
-</form>
+<h1>@{{ctrl.user.username}}</h1>
+<h2 class="prolooks" onclick="profilePosts()">posts ▶</h2>
+<h2 class="proposts" onclick="profileLooks()">looks ▼</h2>
 </div>
 
 <div class="bottom">
@@ -25,11 +19,16 @@
       <img ng-click="ctrl.getOne(looks.look.id)" onclick="openShow()" src="{{looks.look.image}}">
     </div>
   </div>
+
+  <div class="profile_right_posts">
+    hihihih
+  </div>
 </div>
 
 <div class="background_filter"></div>
 <div class="color_filter"></div>
-<div class="show_modal" ng-include="'/partials/onelook.html'">
+<div class="new_modal" ng-include="'/partials/newmodal.html'"></div>
+<div class="show_modal" ng-include="'/partials/onelook.html'"></div>
 
 
 

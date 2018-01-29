@@ -1,12 +1,24 @@
 <div class="show_box">
 <h3 onclick="closeBoxes()">close</h3>
-<div class="show_internal">
-  <h3 class="left" onclick="">comment</h3>
-  <div class="clipnumber">50 clips</div>
-  <img src="{{ctrl.thelook}}">
-
-  comment #clips
-  <img src="">
-  caption
-</div>
+  <div class="show_internal">
+    <div class="show_top">
+      <h3 class="comment" onclick="showComments()">comment<span>▼</span></h3>
+      <h3 class="look" onclick="showLook()">look<span>▶</span></h3>
+      <div class="show_top_right">
+        <div class="clipnumber">
+          50 clips
+        </div>
+      </div>
+    </div>
+    <div class="show_thelook">
+      <img src="{{ctrl.thelook}}">
+      <p class="caption">{{ctrl.looky.users[0].username}} {{ctrl.looky.caption}}</p>
+      <p class="show_tags">
+      <span ng-repeat="tag in ctrl.looky.tags">{{tag}}</span>
+      </p>
+    </div>
+    <div class="show_thecomments">
+      hihihihihihi
+    </div>
+  </div>
 </div>

@@ -6,6 +6,7 @@ app.controller('MainController', ['$http', '$scope', '$sce', '$location', functi
         name: 'whatever'
       };
 
+
 /////////////////////////
   //AUTH
   this.user = {};
@@ -21,7 +22,9 @@ app.controller('MainController', ['$http', '$scope', '$sce', '$location', functi
 
 /////////////////////////
 
-this.url = 'http://localhost:3000';
+// this.url = 'http://localhost:3000';
+this.url = 'https://tailoredhair-api.herokuapp.com';
+
 
 
   // LOGIN
@@ -165,10 +168,12 @@ this.processForm = () => {
     url: this.url + "/looks",
     data: this.formdata
   }).then(response => {
+    console.log(response.data.tags);
     this.lookpost = response.data;
     this.looks.unshift(this.lookpost);
     this.createLook(this.lookpost.id, this.user.id);
     this.formdata = {}
+    console.log(this.lookpost);
     console.log('this.post:', this.lookpost);
   }).catch(error => {
     console.log('error:', error);
@@ -182,9 +187,10 @@ this.getOne = (looks) => {
     url: this.url + "/looks/" + looks,
     method: "GET"
   }).then(response => {
-    console.log(response.data.image);
-    this.thelook = response.data.image
+    console.log(response.data.users[0].username);
+    this.thelook = response.data.image;
     console.log(this.thelook);
+    this.looky = response.data;
   }).catch(reject => {
     console.log('reject: ', reject);
   });

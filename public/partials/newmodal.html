@@ -1,0 +1,10 @@
+<div class="new_box">
+  <h3 onclick="closeBoxes()">close</h3>
+  <form ng-submit="ctrl.processForm()">
+      <input type = "text" ng-model="ctrl.formdata.image" placeholder="Image URL">
+      <input type = "text" ng-model="ctrl.formdata.caption" placeholder="Caption">
+      <input type="hidden" ng-model="ctrl.formdata.user.id">
+      <input type="text" ng-model="ctrl.formdata.tags" placeholder="Tags">
+      <button type="submit">➡</button>
+  </form>
+</div>
