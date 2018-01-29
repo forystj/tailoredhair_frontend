@@ -21,3 +21,15 @@ const logOpen = () => {
   document.getElementsByClassName("regg")[0].style.color = "rgba(255,255,255,.5)"
   document.getElementsByClassName("logg")[0].style.color = "rgba(255,255,255,1)"
 };
+
+const openShow = () => {
+  document.getElementsByClassName("background_filter")[0].style.display = "block";
+  document.getElementsByClassName("color_filter")[0].style.display = "block";
+  document.getElementsByClassName("show_modal")[0].style.display = "block";
+}
+
+const closeBoxes = () => {
+  document.getElementsByClassName("background_filter")[0].style.display = "none";
+  document.getElementsByClassName("color_filter")[0].style.display = "none";
+  document.getElementsByClassName("show_modal")[0].style.display = "none";
+}

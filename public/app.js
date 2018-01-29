@@ -13,9 +13,11 @@ app.controller('MainController', ['$http', '$scope', '$sce', '$location', functi
   this.users = [];
   this.loggedIn = false;
   // GET
+  this.look = {};
   this.looks = [];
   this.userPass = {};
   this.currentPosts = [];
+  this.userlooks = [];
 
 /////////////////////////
 
@@ -50,6 +52,7 @@ this.url = 'http://localhost:3000';
       } else if (this.user.stylist_status == true) {
         $location.path('/profile/' + this.user.username);
       }
+      this.getUsers();
     });
   }
 
@@ -69,6 +72,12 @@ this.url = 'http://localhost:3000';
      this.loggedIn = true;
      localStorage.setItem('token', JSON.stringify(response.data.token));
      console.log('this.user:', this.user);
+     if (this.user.client_status == true) {
+       $location.path('/search/');
+     } else if (this.user.stylist_status == true) {
+       document.getElementsByClassName("reg_form")[0].style.display = "none";
+       document.getElementsByClassName("next_reg")[0].style.display = "block";
+     }
    });
  }
 
@@ -90,9 +99,6 @@ this.url = 'http://localhost:3000';
       }
     });
   }
-
-  // this.getUsers();
-
 
   this.logout = () => {
     localStorage.clear('token');
@@ -116,7 +122,7 @@ this.url = 'http://localhost:3000';
   this.getLooks();
 
 
-  this.getUser = (userlooks) => {
+  this.getUser = (userlooks, id) => {
   $http({
     url: this.url + "/userlooks",
     method: "GET"
@@ -125,6 +131,7 @@ this.url = 'http://localhost:3000';
     for (i=0; i<this.oneUser.length; i++){
       if (this.oneUser[i].user.id === this.currentUser[0].id) {
         this.currentPosts.push(this.oneUser);
+        console.log("yaaaas", this.currentPosts);
       }
     }
     // console.log('this.oneUser:', this.oneUser);
@@ -144,7 +151,8 @@ this.createLook = (look_id, user_id) => {
     url: this.url + "/userlooks",
     data: this.newUserlook
   }).then(response => {
-    this.userlooks.push(response.data)
+    this.look = response.data;
+    this.userlooks.push(response.data);
     this.getLooks();
   }).catch(error => {
     console.log('error:', error);
@@ -161,9 +169,24 @@ this.processForm = () => {
     this.looks.unshift(this.lookpost);
     this.createLook(this.lookpost.id, this.user.id);
     this.formdata = {}
-    console.log('this.post:', this.post);
+    console.log('this.post:', this.lookpost);
   }).catch(error => {
     console.log('error:', error);
+  });
+}
+
+this.getOne = (looks) => {
+  console.log(looks);
+  // console.log(this.currentPosts[0][0].look);
+  $http({
+    url: this.url + "/looks/" + looks,
+    method: "GET"
+  }).then(response => {
+    console.log(response.data.image);
+    this.thelook = response.data.image
+    console.log(this.thelook);
+  }).catch(reject => {
+    console.log('reject: ', reject);
   });
 }
 

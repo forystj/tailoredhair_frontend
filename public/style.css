@@ -427,6 +427,57 @@ input.right {
   width: 300px;
 }
 
+.background_filter {
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.5);
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: none;
+  /*z-index: 98;*/
+}
+
+.color_filter {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: none;
+  /*z-index: 99;*/
+  /*background: linear-gradient(to bottom right, #d26455 0%, #bc559d 100%);*/
+  background: linear-gradient(to bottom right, #c82d90 0%, #722dad 100%);
+  mix-blend-mode: lighten;
+}
+
+.show_modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+}
+
+.show_box {
+  width: 660px;
+  height: 100%;
+  margin: auto;
+  border: 20px solid rgba(255, 255, 255, .2);
+  background-color: rgba(255,255,255,.95);
+  background-clip: padding-box;
+  animation: slide-bottom .7s;
+  padding: 20px;
+}
+
+.show_box h3 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
 @keyframes slide-bottom {
   0% {
     -webkit-transform: translateY(-300px);
