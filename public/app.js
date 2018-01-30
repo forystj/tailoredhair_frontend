@@ -196,11 +196,11 @@ this.getOne = (looks, id) => {
   console.log(this.looks);
   // console.log(this.currentPosts[0][0].look);
   $http({
-    url: this.url + "/userlooks/",
+    url: this.url + "/userlooks",
     method: "GET"
   }).then(response => {
     console.log(response.data);
-    this.thelook = response.data.image;
+    this.thelook = response.data.look;
     console.log(this.thelook);
     this.looky = response.data;
     for (i=0; i<this.looky.tags.length; i++) {
