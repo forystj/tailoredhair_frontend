@@ -22,8 +22,8 @@ app.controller('MainController', ['$http', '$scope', '$sce', '$location', functi
 
 /////////////////////////
 
-this.url = 'http://localhost:3000';
-// this.url = 'https://tailoredhair-api.herokuapp.com';
+// this.url = 'http://localhost:3000';
+this.url = 'https://tailoredhair-api.herokuapp.com';
 
 
 
