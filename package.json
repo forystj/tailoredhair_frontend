@@ -19,6 +19,7 @@
   "dependencies": {
     "bcrypt": "^1.0.3",
     "express": "^4.16.2",
+    "normalize.css": "^7.0.0",
     "routes": "^2.1.0"
   }
 }
