@@ -140,8 +140,8 @@ this.url = 'https://tailoredhair-api.herokuapp.com';
     // console.log(this.currentUser);
     for (i=0; i<this.allLooks.length; i++){
       console.log(this.allLooks[i].user_id);
-      console.log(this.currentUser[0].id);
-      if (this.allLooks[i].user.id = this.currentUser.id) {
+      console.log(this.currentUser[0]);
+      if (this.allLooks[i].user_id = this.currentUser[0].id) {
         this.currentPosts.push(this.allLooks[i])
         console.log(this.currentPosts);
         // console.log(this.allLooks[i]);
