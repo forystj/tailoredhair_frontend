@@ -265,6 +265,7 @@ button.color_status {
   width: 100%;
   align-items: center;
   margin-bottom: 100px;
+  background: black;
 }
 
 .quicksearch input {
