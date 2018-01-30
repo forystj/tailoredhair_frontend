@@ -129,7 +129,7 @@ this.url = 'https://tailoredhair-api.herokuapp.com';
   this.getLooks();
 
 
-  this.getUser = (id, currentUser) => {
+  this.getUser = (id, user) => {
   $http({
     url: this.url + "/userlooks",
     method: "GET"
@@ -137,10 +137,10 @@ this.url = 'https://tailoredhair-api.herokuapp.com';
     console.log(response.data);
     this.allLooks = response.data;
     // console.log(this.allLooks[0].user.id);
-    console.log(this.currentUser);
+    console.log(this.user);
     for (i=0; i<this.allLooks.length; i++){
       console.log(this.allLooks[i].user_id);
-      console.log(this.currentUser[0]);
+      console.log(this.user);
       // if (this.allLooks[i].user_id = this.currentUser[0].id) {
       //   this.currentPosts.push(this.allLooks[i])
       //   console.log(this.currentPosts);
