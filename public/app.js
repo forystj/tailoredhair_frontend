@@ -200,8 +200,9 @@ this.getOne = (looks, id) => {
     method: "GET"
   }).then(response => {
     console.log(response.data);
-    // this.thelook = response.data.look;
-    // console.log(this.thelook);
+    console.log(this.looks);
+    this.thelook = response.data.look;
+    console.log(this.thelook);
     // this.looky = response.data;
     // for (i=0; i<this.looky.tags.length; i++) {
     //   this.thetags = this.looky.tags[i];
