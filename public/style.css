@@ -414,6 +414,7 @@ nav img {
   flex-wrap: wrap;
   justify-content: center;
   box-sizing: border-box;
+  align-items: flex-start;
 }
 
 /**********************/
@@ -492,7 +493,6 @@ input.right {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-self: flex-start;
 }
 
 /**********************/
@@ -531,7 +531,7 @@ input.right {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-self: flex-start;
+  /*align-self: flex-start;*/
 }
 
 .profile_right img {

@@ -129,19 +129,22 @@ this.url = 'http://localhost:3000';
   this.getLooks();
 
 
-  this.getUser = (userlooks, id) => {
+  this.getUser = (looks, id) => {
   $http({
     url: this.url + "/userlooks",
     method: "GET"
   }).then(response => {
     console.log(response.data);
-    this.oneUser = response.data;
+    this.allLooks = response.data;
+    console.log(this.allLooks);
     console.log(this.currentUser);
-    for (i=0; i<this.oneUser.length; i++){
-      console.log(this.oneUser[i].user_id);
-      console.log(this.currentUser);
-      if (this.oneUser[i].user_id === this.currentUser[0].id) {
-        this.currentPosts.push(this.oneUser[i].look)
+    for (i=0; i<this.allLooks.length; i++){
+      // console.log(this.allLooks[i].user_id);
+      // console.log(this.currentUser[0]);
+      if (this.allLooks[i].user_id = this.currentUser[0]) {
+        this.currentPosts.push(this.allLooks[i])
+        console.log(this.currentPosts);
+        // console.log(this.allLooks[i]);
       }
     }
     // console.log('this.oneUser:', this.oneUser);
@@ -180,6 +183,7 @@ this.processForm = () => {
     this.looks.unshift(this.lookpost);
     this.createLook(this.lookpost.id, this.user.id);
     this.formdata = {}
+    this.getLooks();
     console.log(this.lookpost);
     console.log('this.post:', this.lookpost);
   }).catch(error => {
