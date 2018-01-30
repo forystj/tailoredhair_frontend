@@ -194,10 +194,10 @@ this.processForm = () => {
 
 this.getOne = (looks, id) => {
   $http({
-    url: this.url + "/userlooks",
+    url: this.url + "/userlooks/" + id,
     method: "GET"
   }).then(response => {
-    console.log(this.looks.look);
+    console.log(this.id);
     this.thelook = response.data.look;
     // this.looky = response.data;
     // for (i=0; i<this.looky.tags.length; i++) {
