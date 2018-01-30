@@ -130,6 +130,7 @@ this.url = 'https://tailoredhair-api.herokuapp.com';
 
 
   this.getUser = (id, user) => {
+    console.log(this.user);
   $http({
     url: this.url + "/userlooks",
     method: "GET"
