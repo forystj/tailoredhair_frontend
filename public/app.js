@@ -199,13 +199,13 @@ this.getOne = (looks, id) => {
     url: this.url + "/userlooks",
     method: "GET"
   }).then(response => {
-    console.log(response.data);
-    this.thelook = response.data.look;
-    console.log(this.thelook);
-    this.looky = response.data;
-    for (i=0; i<this.looky.tags.length; i++) {
-      this.thetags = this.looky.tags[i];
-    }
+    console.log(response.data.look);
+    // this.thelook = response.data.look;
+    // console.log(this.thelook);
+    // this.looky = response.data;
+    // for (i=0; i<this.looky.tags.length; i++) {
+    //   this.thetags = this.looky.tags[i];
+    // }
   }).catch(reject => {
     console.log('reject: ', reject);
   });
