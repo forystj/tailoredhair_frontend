@@ -282,6 +282,8 @@ button.color_status {
   box-sizing: border-box;
   text-align: center;
   margin: auto;
+  -webkit-border-radius: none;
+
 }
 
 .quicksearch input::placeholder {
@@ -299,7 +301,7 @@ button.color_status {
   -webkit-border-radius: none;
   cursor: pointer;
   box-sizing: border-box;
-  margin: auto;
+  margin: none
 }
 
 .homesearch a {
