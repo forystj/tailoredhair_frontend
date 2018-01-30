@@ -1,3 +1,4 @@
+<div class="homebody">
 <div class="homecontainer">
 <div class="homeblackout">
   <div class="logo">
@@ -59,9 +60,12 @@
 
   <div class="homesearch">
     <div class="quicksearch">
-      <input type="text" placeholder="quick search"/><button type="submit">▶</button>
+      <input type="text" placeholder="quick search" data-ng-model="searchBox"/><button type="submit" onclick="hideHomeSearch()">▶</button></a>
     </div>
     <a class="advanced_search" href="/search"><span>▼</span> advanced search <span>▼</span></a>
   </div>
 </div>
+</div>
+
+<div class="searchcont" ng-include="'/partials/search.html'"></nav>
 </div>

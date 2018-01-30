@@ -12,6 +12,13 @@ body {
   margin: 0;
 }
 
+.homebody {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
 }
@@ -29,7 +36,15 @@ button, input {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
+}
+
+.searchcont {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100bh;
+  overflow: scroll;
 }
 
 /**********************/

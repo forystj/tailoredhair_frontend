@@ -91,7 +91,10 @@ const changeEnjoyBg = () => {
 }
 
 
-
+const hideHomeSearch = () => {
+  document.getElementsByClassName("homecontainer")[0].style.display = "none";
+  document.getElementsByClassName("container")[0].style.display = "block";
+}
 
 
 
