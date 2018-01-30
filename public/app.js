@@ -57,7 +57,7 @@ this.url = 'https://tailoredhair-api.herokuapp.com';
         $location.path('/profile/' + this.user.username);
       }
       this.getUsers();
-      this.getLooks();
+      this.getUser();
     });
   }
 
@@ -117,7 +117,6 @@ this.url = 'https://tailoredhair-api.herokuapp.com';
   }
 
   this.getLooks = (user) => {
-    console.log(this.user);
     $http({
         method:'GET',
         url: this.url + '/looks'
@@ -141,9 +140,6 @@ this.url = 'https://tailoredhair-api.herokuapp.com';
     console.log(response.data);
     this.allLooks = response.data;
     // console.log(this.allLooks[0].user.id);
-    // for (let j=0; j<this.currentUser.length; j++){
-    //   console.log('hi');
-    // }
     console.log(this.currentUser);
     for (let i=0; i<this.allLooks.length; i++){
       console.log(this.allLooks[i].user_id);
