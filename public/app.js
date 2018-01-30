@@ -56,6 +56,7 @@ this.url = 'https://tailoredhair-api.herokuapp.com';
         $location.path('/profile/' + this.user.username);
       }
       this.getUsers();
+      this.getLooks();
     });
   }
 
