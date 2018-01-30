@@ -143,9 +143,13 @@ this.url = 'https://tailoredhair-api.herokuapp.com';
     for (let i=0; i<this.allLooks.length; i++){
       console.log(this.allLooks[i].user_id);
       console.log(this.currentUser[0].id);
+      if (this.allLooks[i].user_id = this.currentUser[0].id) {
+        this.currentPosts.push(this.allLooks[i])
+        console.log(this.currentPosts);
+      }
       // if (this.allLooks[i].user_id = this.currentUser[0].id) {
-      //   this.currentPosts.push(this.allLooks[i])
-      //   console.log(this.currentPosts);
+        // this.currentPosts.push(this.allLooks[i])
+        // console.log(this.currentPosts);
       //   // console.log(this.allLooks[i]);
       // }
     }
