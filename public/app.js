@@ -194,7 +194,6 @@ this.processForm = () => {
 
 this.getOne = (looks, id) => {
   console.log(this.looks);
-  // console.log(this.currentPosts[0][0].look);
   $http({
     url: this.url + "/userlooks",
     method: "GET"

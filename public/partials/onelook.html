@@ -11,7 +11,8 @@
       </div>
     </div>
     <div class="show_thelook">
-      <img src="{{ctrl.thelook}}">
+      {{ctrl.looks}}
+      <img src="{{ctrl.looks}}">
       <p class="caption">{{ctrl.looky.users[0].username}} {{ctrl.looky.caption}}</p>
       <p class="show_tags">
       <span ng-repeat="tag in ctrl.thetags">{{ctrl.tag}}</span>
