@@ -2,9 +2,9 @@ const app = angular.module('tailoredhair_app', ['ngRoute', 'ngSanitize']);
 
 app.controller('MainController', ['$http', '$scope', '$sce', '$location', function($http, $scope, $sce, $location) {
 
-  $scope.specialty = {
-        name: 'whatever'
-      };
+  // $scope.specialty = {
+  //       name: 'whatever'
+  //     };
 
 
 /////////////////////////
