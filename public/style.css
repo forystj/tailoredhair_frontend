@@ -283,7 +283,8 @@ button.color_status {
   text-align: center;
   margin: auto;
   -webkit-border-radius: none;
-
+  -webkit-appearance:none;
+  -webkit-border-radius:0;
 }
 
 .quicksearch input::placeholder {
