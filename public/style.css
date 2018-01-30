@@ -296,7 +296,7 @@ button.color_status {
   font-size: 30px;
   /*border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;*/
-  border-radius: none;
+  -webkit-border-radius: none;
   cursor: pointer;
   box-sizing: border-box;
   margin: auto;
