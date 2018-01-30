@@ -192,8 +192,8 @@ this.processForm = () => {
   });
 }
 
-this.getOne = (currentPosts) => {
-  console.log(this.currentPosts);
+this.getOne = (allLooks, id) => {
+  console.log(this.allLooks);
   // console.log(this.currentPosts[0][0].look);
   $http({
     url: this.url + "/userlooks/" + id,
