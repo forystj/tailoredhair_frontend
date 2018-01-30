@@ -27,10 +27,10 @@
   </form>
 </div>
 
-<div class="bottom searchimg">
+<div class="bottom">
   <!-- hi {{ctrl.user.username}} -->
-  <div class="search_looks" ng-repeat="look in ctrl.looks | orderBy:'updated_at':true | filter: searchBox | filter: searchFilt">
-    <img src="{{ look.image }}">
+  <div class="searchimg" ng-repeat="look in ctrl.looks | orderBy:'updated_at':true | filter: searchBox | filter: searchFilt">
+    <div class="search_looks"><img src="{{ look.image }}"></div>
   </div>
 </div>
 

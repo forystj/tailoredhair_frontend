@@ -22,8 +22,8 @@ app.controller('MainController', ['$http', '$scope', '$sce', '$location', functi
 
 /////////////////////////
 
-// this.url = 'http://localhost:3000';
-this.url = 'https://tailoredhair-api.herokuapp.com';
+this.url = 'http://localhost:3000';
+// this.url = 'https://tailoredhair-api.herokuapp.com';
 
 
 
@@ -191,6 +191,9 @@ this.getOne = (looks) => {
     this.thelook = response.data.image;
     console.log(this.thelook);
     this.looky = response.data;
+    for (i=0; i<this.looky.tags.length; i++) {
+      this.thetags = this.looky.tags[i];
+    }
   }).catch(reject => {
     console.log('reject: ', reject);
   });
