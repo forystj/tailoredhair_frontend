@@ -327,6 +327,14 @@ nav {
   flex-direction: row;
 }
 
+.navhair {
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: #414196;
+  margin-top: 20px;
+}
+
 nav ul {
   margin: 0;
   width: 100%;
@@ -353,6 +361,12 @@ nav li {
 nav li:hover {
   background: #f1f1f1;
   color: rgba(0,0,0,.5);
+}
+
+nav img {
+  width: 70px;
+  height: 70px;
+  margin: auto 10px;
 }
 
 
@@ -457,7 +471,6 @@ input.right {
 
 .searchimg img {
   height: 250px;
-  background: black;
 }
 
 .search_looks {
