@@ -75,11 +75,15 @@ this.url = 'http://localhost:3000';
      this.loggedIn = true;
      localStorage.setItem('token', JSON.stringify(response.data.token));
      console.log('this.user:', this.user);
+     this.currentUser.push(this.user);
      if (this.user.client_status == true) {
        $location.path('/search/');
      } else if (this.user.stylist_status == true) {
        document.getElementsByClassName("reg_form")[0].style.display = "none";
        document.getElementsByClassName("next_reg")[0].style.display = "block";
+       document.getElementsByClassName("imma")[0].style.display = "none";
+       document.getElementsByClassName("s_status")[0].style.display = "none";
+       document.getElementsByClassName("c_status")[0].style.display = "none";
      }
    });
  }
@@ -131,9 +135,12 @@ this.url = 'http://localhost:3000';
     method: "GET"
   }).then(response => {
     this.oneUser = response.data;
+    console.log(this.currentUser);
     for (i=0; i<this.oneUser.length; i++){
-      if (this.oneUser[i].user.id === this.currentUser[0].id) {
-        this.currentPosts.push(this.oneUser);
+      console.log(this.oneUser[i].user_id);
+      console.log(this.currentUser[0]);
+      if (this.oneUser[i].user_id === this.currentUser[0].id) {
+        this.currentPosts.push(this.oneUser[i].look)
         console.log("yaaaas", this.currentPosts);
       }
     }
@@ -180,11 +187,11 @@ this.processForm = () => {
   });
 }
 
-this.getOne = (looks) => {
-  console.log(looks);
+this.getOne = (currentPosts) => {
+  console.log(this.currentPosts);
   // console.log(this.currentPosts[0][0].look);
   $http({
-    url: this.url + "/looks/" + looks,
+    url: this.url + "/looks/" + currentPosts,
     method: "GET"
   }).then(response => {
     console.log(response.data.users[0].username);
@@ -197,6 +204,27 @@ this.getOne = (looks) => {
   }).catch(reject => {
     console.log('reject: ', reject);
   });
+}
+
+this.editStylist = (user) => {
+  console.log(this.user);
+  $http({
+    method: "PUT",
+    url: this.url + "/users/" + this.user.id,
+    data: this.formData
+  }).then(response => {
+    this.user.specialty = this.formData.specialty;
+    this.user.avatar = this.formData.avatar;
+    this.formData = {};
+    this.currentUser.push(this.user);
+    if (this.user.client_status == true) {
+      $location.path('/search/');
+    } else if (this.user.stylist_status == true) {
+      $location.path('/profile/' + this.user.username);
+    }
+  }, error => {
+    console.error(error);
+  }).catch(err => console.error("Catch: ", err));
 }
 
 }]);

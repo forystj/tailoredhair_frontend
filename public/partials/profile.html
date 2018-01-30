@@ -15,8 +15,8 @@
     </div>
   </div>
   <div class="profile_right">
-    <div class="profile_looks" ng-repeat="looks in ctrl.currentPosts[0] | orderBy:'updated_at':true">
-      <img ng-click="ctrl.getOne(looks.look.id)" onclick="openShow()" src="{{looks.look.image}}">
+    <div class="profile_looks" ng-repeat="looks in ctrl.currentPosts | orderBy:'updated_at':true">
+      <img ng-click="ctrl.getOne(looks.id)" onclick="openShow()" src="{{looks.image}}">
     </div>
   </div>
 

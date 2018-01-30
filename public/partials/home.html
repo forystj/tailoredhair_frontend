@@ -24,7 +24,7 @@
   <div class="reg">
 
     <form class="initial_reg" ng-submit="ctrl.register(regData)">
-      <section>I'm a</section>
+      <section class="imma">I'm a</section>
       <div class="statuses">
         <button type="button" class="c_status" onclick="clickClient()" ng-click="regData.client_status = true; regData.stylist_status = false">CLIENT</button>
         <button type="button" class="s_status" onclick="clickStylist()" ng-click="regData.stylist_status = true; regData.client_status = false">STYLIST</button>
@@ -38,21 +38,22 @@
       </div>
     </form>
 
-    <form class="next_reg">
-      <label>
-        <input type="radio" ng-model="specialty.name" value="specialty">
-        Specialty
-      </label>
-      <tt>Speialty = {{specialty.name | json}}</tt><br/>
+    <form class="next_reg" ng-submit="ctrl.editStylist(ctrl.user.specialty)">
+      <section>specialty</section>
+      <div class="statuses">
+      <button class="cut_status" type="button" ng-click="ctrl.formData.specialty = 'cut'">cut</button>
+      <button class="color_status" type="button" ng-click="ctrl.formData.specialty = 'color'">color</button>
+      </div>
+      <!-- <section ng-click="ctrl.formData.specialty = 'color, cut'">both</section> -->
+
+      <section>avatar url</section>
+      <input ng-model="ctrl.formData.avatar" type="text" value="{{ctrl.user.avatar}}" placeholder="url">
+      <button type="submit" name="button">edit</button>
     </form>
 
   </div>
 
   <!-- {{ctrl.user.username}} -->
-
-  <!-- <h4 ng-click="ctrl.getUsers()">Click To See Secret Stuff</h4>
-
-  <div>{{ctrl.error}}</div> -->
 
   <!-- <a href="#" ng-click="ctrl.logout()">Logout</a> -->
 
