@@ -296,6 +296,7 @@ button.color_status {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .homesearch a {

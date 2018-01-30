@@ -22,8 +22,8 @@ app.controller('MainController', ['$http', '$scope', '$sce', '$location', functi
 
 /////////////////////////
 
-// this.url = 'http://localhost:3000';
-this.url = 'https://tailoredhair-api.herokuapp.com';
+this.url = 'http://localhost:3000';
+// this.url = 'https://tailoredhair-api.herokuapp.com';
 
 
 
@@ -134,14 +134,14 @@ this.url = 'https://tailoredhair-api.herokuapp.com';
     url: this.url + "/userlooks",
     method: "GET"
   }).then(response => {
+    console.log(response.data);
     this.oneUser = response.data;
     console.log(this.currentUser);
     for (i=0; i<this.oneUser.length; i++){
       console.log(this.oneUser[i].user_id);
-      console.log(this.currentUser[0]);
+      console.log(this.currentUser);
       if (this.oneUser[i].user_id === this.currentUser[0].id) {
         this.currentPosts.push(this.oneUser[i].look)
-        console.log("yaaaas", this.currentPosts);
       }
     }
     // console.log('this.oneUser:', this.oneUser);
