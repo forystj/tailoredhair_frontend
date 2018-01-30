@@ -199,7 +199,7 @@ this.getOne = (looks, id) => {
     url: this.url + "/userlooks/",
     method: "GET"
   }).then(response => {
-    console.log(response.data.users[0].username);
+    console.log(response.data);
     this.thelook = response.data.image;
     console.log(this.thelook);
     this.looky = response.data;
