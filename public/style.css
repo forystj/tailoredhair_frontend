@@ -298,6 +298,7 @@ button.color_status {
   border-bottom-right-radius: 5px;
   cursor: pointer;
   box-sizing: border-box;
+  margin: auto;
 }
 
 .homesearch a {
