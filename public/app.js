@@ -50,6 +50,7 @@ this.url = 'https://tailoredhair-api.herokuapp.com';
       console.log(this.currentUser[0]);
       localStorage.setItem('token', JSON.stringify(response.data.token));
       this.loggedIn = true;
+      this.getLooks();
       if (this.user.client_status == true) {
         $location.path('/search/');
       } else if (this.user.stylist_status == true) {
