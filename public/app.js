@@ -123,7 +123,7 @@ this.url = 'https://tailoredhair-api.herokuapp.com';
     }).then( response => {
       console.log( response.data );
         this.looks = response.data;
-        console.log(this.looks.id);
+        console.log(this.looks);
     }, error => {
         console.error( error.message );
     }).catch( err => console.error('Catch: ' , err ));
