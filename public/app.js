@@ -192,7 +192,7 @@ this.processForm = () => {
   });
 }
 
-this.getOne = (looks, id) => {
+this.getOne = (id) => {
   $http({
     url: this.url + "/userlooks/" + id,
     method: "GET"
