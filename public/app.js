@@ -197,7 +197,7 @@ this.getOne = (id) => {
     url: this.url + "/userlooks/" + id,
     method: "GET"
   }).then(response => {
-    console.log(response.data);
+    console.log(response.data.look.image);
     // this.thelook = response.data.look;
     // this.looky = response.data;
     // for (i=0; i<this.looky.tags.length; i++) {
