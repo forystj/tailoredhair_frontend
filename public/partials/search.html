@@ -28,7 +28,7 @@
 <div class="bottom">
   <!-- hi {{ctrl.user.username}} -->
   <div class="searchimg" ng-repeat="look in ctrl.looks | orderBy:'updated_at':true | filter: searchBox | filter: searchFilt">
-    <div class="search_looks"><img ng-click="ctrl.getOne(look.id)" onclick="openShow()" src="{{ look.image }}"></div>
+    <div class="search_looks"><img ng-click="ctrl.getOne(look.id)" onclick="openShow()" src="{{ look.look.image }}"></div>
   </div>
 </div>
 
